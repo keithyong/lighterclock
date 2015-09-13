@@ -7,19 +7,19 @@ DROP TABLE IF EXISTS users;
 
 CREATE TYPE in_out_type AS ENUM ('in', 'out');
 
-CREATE TABLE time_sheet (
-    id          SERIAL,
-    time        TIMESTAMPTZ,
-    username    VARCHAR(100) NOT NULL,
-    type        in_out_type,
+CREATE TABLE IF NOT EXISTS users (
+    id              serial,
+    username        varchar(100) NOT NULL UNIQUE,
+    password        varchar(100) NOT NULL,
+    creation_time   timestamptz NOT NULL DEFAULT now(),
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS users (
-    id              SERIAL,
-    username        VARCHAR(100) NOT NULL UNIQUE,
-    password        VARCHAR(100) NOT NULL,
-    creation_time   TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+CREATE TABLE time_sheet (
+    id          serial,
+    time        timestamptz,
+    username    varchar(100) references users(username) NOT NULL,
+    type        in_out_type,
     PRIMARY KEY (id)
 );
 
@@ -48,3 +48,15 @@ CREATE TRIGGER punch_restrictions
     AFTER INSERT ON time_sheet
     EXECUTE PROCEDURE punch_restrictions()
 */
+
+INSERT INTO users VALUES (default, 'keithy', 'a', timestamp '2015-9-12 07:00');
+INSERT INTO users VALUES (default, 'john', 'a', timestamp '2015-9-12 07:00');
+
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 08:00', 'keithy', 'in');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 16:00', 'keithy', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-13 08:00', 'keithy', 'in');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-13 14:00', 'keithy', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 9:30', 'john', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 15:00', 'john', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-14 9:30', 'john', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-14 15:12', 'john', 'out');
