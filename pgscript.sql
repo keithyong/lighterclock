@@ -56,7 +56,7 @@ INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 08:00', 'keithy', '
 INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 16:00', 'keithy', 'out');
 INSERT INTO time_sheet VALUES (default, timestamp '2015-9-13 08:00', 'keithy', 'in');
 INSERT INTO time_sheet VALUES (default, timestamp '2015-9-13 14:00', 'keithy', 'out');
-INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 9:30', 'john', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 9:30', 'john', 'in');
 INSERT INTO time_sheet VALUES (default, timestamp '2015-9-12 15:00', 'john', 'out');
-INSERT INTO time_sheet VALUES (default, timestamp '2015-9-14 9:30', 'john', 'out');
+INSERT INTO time_sheet VALUES (default, timestamp '2015-9-14 9:30', 'john', 'in');
 INSERT INTO time_sheet VALUES (default, timestamp '2015-9-14 15:12', 'john', 'out');
