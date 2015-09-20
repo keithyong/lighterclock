@@ -43,7 +43,6 @@ $$
     DECLARE
         curr_total_time interval;
         last_timestamp timestamptz;
-        worked_time interval;
         new_total_time interval;
     BEGIN
         IF (TG_OP = 'INSERT') THEN
@@ -54,11 +53,8 @@ $$
                 -- Grab the last punch timestamp --
                 SELECT time INTO last_timestamp FROM punch WHERE time_sheet_id=NEW.time_sheet_id ORDER BY id DESC LIMIT 1;
 
-                -- Calculate worked_time --
-                SELECT NEW.time - last_timestamp INTO worked_time;
-
                 -- Calculate new_total_time --
-                SELECT worked_time + curr_total_time INTO new_total_time;
+                SELECT (NEW.time - last_timestamp) + curr_total_time INTO new_total_time;
 
                 -- Update time_sheet with new_total_time --
                 UPDATE time_sheet SET total_time=new_total_time WHERE id=NEW.time_sheet_id;
