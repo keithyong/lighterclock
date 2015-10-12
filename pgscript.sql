@@ -78,6 +78,7 @@ INSERT INTO users VALUES (default, 'john', 'a', timestamp '2015-9-12 07:00');
 
 INSERT INTO time_sheet VALUES (default, 'Lofoten Painting', 'keithy', default);
 INSERT INTO time_sheet VALUES (default, 'lighterclock', 'keithy', default);
+INSERT INTO time_sheet VALUES (default, 'Oil Still Life', 'keithy', default);
 INSERT INTO time_sheet VALUES (default, 'John Work', 'john', default);
 
 -- Insert punches into Lofoten Painting --
@@ -92,8 +93,12 @@ INSERT INTO punch VALUES (default, 2, timestamp '2015-9-20 13:15', 'out');
 INSERT INTO punch VALUES (default, 2, timestamp '2015-9-21 7:00', 'in');
 INSERT INTO punch VALUES (default, 2, timestamp '2015-9-21 12:21', 'out');
 
+-- Insert punches into Oil Still Life
+INSERT INTO punch VALUES (default, 3, timestamp '2015-9-21 12:21', 'in');
+INSERT INTO punch VALUES (default, 3, timestamp '2015-9-21 12:50', 'out');
+
 -- Insert punches into John Work --
-INSERT INTO punch VALUES (default, 3, timestamp '2015-9-12 9:30', 'in');
-INSERT INTO punch VALUES (default, 3, timestamp '2015-9-12 15:00', 'out');
-INSERT INTO punch VALUES (default, 3, timestamp '2015-9-14 9:30', 'in');
-INSERT INTO punch VALUES (default, 3, timestamp '2015-9-14 15:12', 'out');
+INSERT INTO punch VALUES (default, 4, timestamp '2015-9-12 9:30', 'in');
+INSERT INTO punch VALUES (default, 4, timestamp '2015-9-12 15:00', 'out');
+INSERT INTO punch VALUES (default, 4, timestamp '2015-9-14 9:30', 'in');
+INSERT INTO punch VALUES (default, 4, timestamp '2015-9-14 15:12', 'out');
