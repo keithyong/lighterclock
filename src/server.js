@@ -12,7 +12,6 @@ app.set('views', __dirname + '/views');
 
 app.use('/api/timesheet', require('./api/timesheet'));
 
-
 app.get('/', function(req, res) {
     db.grabTimeSheetList('keithy', (rows) => {
         var reactHtml = ReactDOMServer.renderToString(ReactApp({timesheets: rows}));

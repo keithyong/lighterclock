@@ -9,4 +9,10 @@ router.get('/:username', (req, res, next) => {
     });
 });
 
+router.get('/id/:timesheet_id', (req, res, next) => {
+    db.grabTimeSheetInfo(req.params.timesheet_id, (rows) => {
+        res.send(rows);
+    });
+});
+
 module.exports = router;
