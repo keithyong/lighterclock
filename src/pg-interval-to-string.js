@@ -5,42 +5,12 @@ export default function(age) {
         age.seconds = 0;
     }
 
-    // Format the age accordingly
-    if (age.days) {
-        bannerAge = age.days;
+    var n = Object.keys(age).slice(0, 2);
 
-        if (age.days === 1) {
-            bannerAge += ' day ';
-        } else {
-            bannerAge += ' days ';
-        }
-    }
-    else if (age.hours) {
-        bannerAge = age.hours;
+    n.map(time => {
+        bannerAge += age[time] + ' ' + time + ' ';
+    });
 
-        if (age.hours === 1) {
-            bannerAge = ' an hour ';
-        } else {
-            bannerAge += ' hours ';
-        }
-    }
-    else if (age.minutes) {
-        bannerAge = age.minutes;
-
-        if (age.minutes === 1) {
-            bannerAge += ' minute ';
-        } else {
-            bannerAge += ' minutes ';
-        }
-    } else {
-        bannerAge = age.seconds;
-
-        if (age.seconds === 1) {
-            bannerAge += ' second ';
-        } else {
-            bannerAge += ' seconds ';
-        }
-    }
-
+    bannerAge = bannerAge.slice(0, -1);
     return bannerAge;
 }

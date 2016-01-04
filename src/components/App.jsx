@@ -1,16 +1,14 @@
 import React from 'react'
-import Config from '../config'
+import ReactDOM from 'react-dom'
+import { createStore, combineReducers } from 'redux'
 import TimeSheetList from './TimeSheetList.jsx'
 
-class App extends React.Component{
+class App extends React.Component {
     render() {
         return (
-            <div>
-                <h1>{Config.title}</h1>
-                <TimeSheetList timesheets={this.props.timesheets} />
-            </div>
+            <h1>Hi</h1>
         );
     }
 }
 
-export default App
+ReactDOM.render(<App />, document.getElementById('root'));

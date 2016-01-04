@@ -10,4 +10,4 @@ export default class TimesheetListItem extends React.Component {
             </li>
         )
     }
-}
+};
